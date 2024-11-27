@@ -1,17 +1,20 @@
-package com.it.bbs.entity;
+package com.it.bbs.pojos.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 点赞记录表
+ * 预设头像表
  * </p>
  *
  * @author yym
@@ -20,34 +23,26 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("likes")
-public class Likes implements Serializable {
+@TableName("avatars")
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+public class Avatars implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 点赞记录ID，自增主键
+     * 头像ID，自增主键
      */
-    @TableId(value = "like_id", type = IdType.AUTO)
-    private Integer likeId;
+    @TableId(value = "avatar_id", type = IdType.AUTO)
+    private Integer avatarId;
 
     /**
-     * 被点赞对象的ID（可能是帖子ID或评论ID）
+     * 头像图片的URL地址
      */
-    private Integer targetId;
+
+    private String imageUrl;
 
     /**
-     * 点赞对象类型：1-帖子，2-评论
-     */
-    private Integer targetType;
-
-    /**
-     * 点赞设备的唯一标识（可以是cookie或设备指纹）
-     */
-    private String deviceId;
-
-    /**
-     * 点赞时间
+     * 头像创建时间
      */
     private LocalDateTime createdAt;
 

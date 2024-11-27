@@ -1,6 +1,7 @@
 package com.it.bbs.service;
 
-import com.it.bbs.entity.Reports;
+import com.it.bbs.pojos.dtos.ReportDTO;
+import com.it.bbs.pojos.entity.Reports;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -12,5 +13,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-11-27
  */
 public interface IReportsService extends IService<Reports> {
-
+    /**
+     * 举报帖子
+     * @param postId
+     */
+    void reportPost(Integer postId, ReportDTO reportDTO);
 }

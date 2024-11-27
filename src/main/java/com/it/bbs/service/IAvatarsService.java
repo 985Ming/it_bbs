@@ -1,7 +1,10 @@
 package com.it.bbs.service;
 
-import com.it.bbs.entity.Avatars;
+import com.it.bbs.pojos.dtos.PageQueryDTO;
+import com.it.bbs.pojos.entity.Avatars;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.it.bbs.pojos.result.Result;
+import com.it.bbs.pojos.vos.AvatarsVO;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IAvatarsService extends IService<Avatars> {
 
+    Result<AvatarsVO> getAvatars(PageQueryDTO pageQueryDTO);
 }

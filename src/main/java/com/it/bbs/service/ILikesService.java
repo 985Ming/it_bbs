@@ -1,6 +1,6 @@
 package com.it.bbs.service;
 
-import com.it.bbs.entity.Likes;
+import com.it.bbs.pojos.entity.Likes;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ILikesService extends IService<Likes> {
 
+    void addLikePost(Integer postId);
 }

@@ -1,6 +1,6 @@
 package com.it.bbs.mapper;
 
-import com.it.bbs.entity.Avatars;
+import com.it.bbs.pojos.entity.Avatars;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

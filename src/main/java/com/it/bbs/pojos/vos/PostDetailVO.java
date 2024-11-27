@@ -1,30 +1,16 @@
-package com.it.bbs.entity;
+package com.it.bbs.pojos.vos;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
-/**
- * <p>
- * 论坛帖子表
- * </p>
- *
- * @author yym
- * @since 2024-11-27
- */
+import java.time.LocalDateTime;
+
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@TableName("posts")
-public class Posts implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+public class PostDetailVO {
     /**
      * 帖子ID，自增主键
      */
@@ -75,6 +61,10 @@ public class Posts implements Serializable {
      * 帖子状态：1-正常，0-删除，2-置顶，3-隐藏
      */
     private Integer status;
+    /**
+     * 头像图片的URL地址
+     */
+    private String imageUrl;
 
 
 }

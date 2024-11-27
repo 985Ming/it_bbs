@@ -1,7 +1,11 @@
 package com.it.bbs.service;
 
-import com.it.bbs.entity.Posts;
+import com.it.bbs.pojos.dtos.AddPostDTO;
+import com.it.bbs.pojos.dtos.PostQueryDTO;
+import com.it.bbs.pojos.entity.Posts;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.it.bbs.pojos.result.Result;
+import com.it.bbs.pojos.vos.PostDetailVO;
 
 /**
  * <p>
@@ -13,4 +17,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IPostsService extends IService<Posts> {
 
+    PostDetailVO getPostDetail(Integer postId);
+
+    void addPost(AddPostDTO addPostDTO);
+
+
+    Result<PostDetailVO> getPage(PostQueryDTO postQueryDTO);
 }

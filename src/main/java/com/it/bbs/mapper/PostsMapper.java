@@ -1,6 +1,6 @@
 package com.it.bbs.mapper;
 
-import com.it.bbs.entity.Posts;
+import com.it.bbs.pojos.entity.Posts;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

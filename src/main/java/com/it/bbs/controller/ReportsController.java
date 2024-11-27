@@ -1,9 +1,10 @@
 package com.it.bbs.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import com.it.bbs.pojos.dtos.ReportDTO;
+import com.it.bbs.service.IReportsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -14,7 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2024-11-27
  */
 @RestController
-@RequestMapping("/reports")
+@RequestMapping("/report")
 public class ReportsController {
+    @Autowired
+    private IReportsService reportsService;
+@PutMapping("/post/{post_id}")
+    public void reportPost(@PathVariable("post_id")  Integer postId, @RequestBody ReportDTO reportDTO){
+         reportsService.reportPost(postId,reportDTO);
 
+    }
 }

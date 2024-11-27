@@ -1,6 +1,6 @@
 package com.it.bbs.service.impl;
 
-import com.it.bbs.entity.Comments;
+import com.it.bbs.pojos.entity.Comments;
 import com.it.bbs.mapper.CommentsMapper;
 import com.it.bbs.service.ICommentsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
