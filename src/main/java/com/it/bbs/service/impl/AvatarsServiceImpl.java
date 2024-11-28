@@ -47,7 +47,7 @@ public class AvatarsServiceImpl extends ServiceImpl<AvatarsMapper, Avatars> impl
 //        pagination.setHas_next(true);
 //        pagination.setHas_previous(true);
  //       if(pageQueryDTO.getPage() != null) {
-            Page<Avatars> page = pageQueryDTO.toMpPage(pageQueryDTO.getSortBy(), pageQueryDTO.getSortOrder());
+            Page<Avatars> page = pageQueryDTO.toMpPage(pageQueryDTO.getSort_by(), pageQueryDTO.getSort_order());
             // 查询所有数据
             Page<Avatars> list = page(page);
             List<Avatars> records = list.getRecords();

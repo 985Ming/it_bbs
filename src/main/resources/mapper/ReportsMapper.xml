@@ -2,4 +2,52 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.it.bbs.mapper.ReportsMapper">
 
+    <select id="getReportPost" resultType="com.it.bbs.pojos.vos.ReportPostVO">
+        select
+            a.avatar_id,
+            a.image_url,
+            p.post_id,
+            p.title,
+            p.nickname,
+            p.content,
+            p.created_at,
+            r.report_id,
+            r.target_type,
+            r.target_id,
+            r.reason_type,
+            r.status
+
+            from
+                     reports r
+        left join posts p on r.target_id = p.post_id
+        left join avatars a on a.avatar_id =p.avatar_id
+        <if test="sort_by != null and sort_order != null">
+            order by ${sort_by} ${sort_order}
+        </if>
+    </select>
+    <select id="getReportComment" resultType="com.it.bbs.pojos.vos.ReportCommentVO">
+        select
+        a.avatar_id,
+        a.image_url,
+        c.comment_id,
+        c.post_id,
+        c.parent_id,
+        c.nickname,
+        c.content,
+        c.reply_count,
+        c.created_at,
+        r.report_id,
+        r.target_type,
+        r.target_id,
+        r.reason_type,
+        r.status
+
+        from
+        reports r
+        left join comments c on r.target_id = c.comment_id
+        left join avatars a on a.avatar_id =c.avatar_id
+        <if test="sort_by != null and sort_order != null">
+        order by ${sort_by} ${sort_order}
+        </if>
+    </select>
 </mapper>

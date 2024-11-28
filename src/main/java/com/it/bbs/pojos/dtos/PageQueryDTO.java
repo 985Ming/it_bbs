@@ -11,13 +11,15 @@ import lombok.Data;
 public class PageQueryDTO {
 private Integer page =1;
 private Integer size =6;
-private String sortBy;
-private String sortOrder;
+private String sort_by;
+private String sort_order;
 
     public <T> Page<T> toMpPage(String sortBy,String sortOrder){
         Page<T> page1=Page.of(page,size);
+
         if(StrUtil.isNotBlank(sortBy)){
-            page1.addOrder(new OrderItem(sortBy, sortOrder.equals("asc")? true : false));
+
+            page1.addOrder(new OrderItem(sortBy, sortOrder.equals("asc")));
         }
         return page1;
     }

@@ -1,7 +1,11 @@
 package com.it.bbs.service;
 
+import com.it.bbs.pojos.dtos.CommentDTO;
+import com.it.bbs.pojos.dtos.CommentQueryDTO;
 import com.it.bbs.pojos.entity.Comments;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.it.bbs.pojos.result.Result;
+import com.it.bbs.pojos.vos.CommentsVO;
 
 /**
  * <p>
@@ -13,4 +17,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICommentsService extends IService<Comments> {
 
+    Result<CommentsVO> getpage(CommentQueryDTO commentQueryDTO);
+
+    void addComment(CommentDTO commentsDTO);
+
+    void likeComment(Integer commentId);
 }

@@ -47,6 +47,8 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
     @Override
     public PostDetailVO getPostDetail(Integer postId) {
         Posts posts = baseMapper.selectById(postId);
+
+        lambdaUpdate().set(Posts::getViews, posts.getViews()+1).eq(Posts::getPostId, postId).update();
         Avatars avatars = avatarsService.getById(posts.getAvatarId());
       PostDetailVO postDetailVO = new PostDetailVO();
         BeanUtils.copyProperties(posts, postDetailVO);
@@ -78,7 +80,7 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
      */
     @Override
     public Result<PostDetailVO> getPage(PostQueryDTO postQueryDTO) {
-        Page<Posts> mpPage = postQueryDTO.toMpPage(postQueryDTO.getSortBy(), postQueryDTO.getSortOrder());
+        Page<Posts> mpPage = postQueryDTO.toMpPage(postQueryDTO.getSort_by(), postQueryDTO.getSort_order());
 
         Page<Posts> page = lambdaQuery().eq(ObjectUtil.isNotEmpty(postQueryDTO.getStatus()), Posts::getStatus, postQueryDTO.getStatus())
                 .in(Posts::getStatus,PostsStatusEnum.NORMAL.getStatus(),PostsStatusEnum.TOP.getStatus())
