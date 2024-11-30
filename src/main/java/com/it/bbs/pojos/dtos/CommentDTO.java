@@ -4,9 +4,11 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Data
-public class CommentDTO {
+public class CommentDTO implements Serializable {
     /**
      * 评论所属的帖子ID，关联posts表
      */

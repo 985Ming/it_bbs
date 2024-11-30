@@ -38,8 +38,9 @@ return  commentsService.getpage(commentQueryDTO);
      */
 
     @PostMapping
-    public void addComment( @RequestBody CommentDTO commentsDTO){
+    public Result addComment( @RequestBody CommentDTO commentsDTO){
         commentsService.addComment(commentsDTO);
+        return Result.success("评论成功");
     }
 
     /**
@@ -47,7 +48,8 @@ return  commentsService.getpage(commentQueryDTO);
      * @param commentId
      */
     @PutMapping("/like/{comment_id}")
-    public void likeComment(@PathVariable("comment_id") Integer commentId){
+    public Result likeComment(@PathVariable("comment_id") Integer commentId){
         commentsService.likeComment(commentId);
+        return Result.success("点赞成功");
     }
 }

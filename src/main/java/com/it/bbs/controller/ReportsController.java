@@ -43,8 +43,9 @@ public class ReportsController {
      * @param reportDTO
      */
     @PutMapping("/comment/{comment_id}")
-    public void reportComment(@PathVariable("comment_id") Integer commentId,@RequestBody ReportDTO reportDTO){
+    public Result reportComment(@PathVariable("comment_id") Integer commentId,@RequestBody ReportDTO reportDTO){
         reportsService.reportComment(commentId,reportDTO);
+        return Result.success("举报成功");
     }
     //查询举报评论
     @GetMapping("/comment")

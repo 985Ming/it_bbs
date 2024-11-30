@@ -120,8 +120,8 @@ public class ReportsServiceImpl extends ServiceImpl<ReportsMapper, Reports> impl
     @Override
     public Result<ReportCommentVO> getReportComment(PageQueryDTO pageQueryDTO) {
         Page<Reports> page1 = Page.of(pageQueryDTO.getPage(), pageQueryDTO.getSize());
-
         Page<ReportCommentVO> page = baseMapper.getReportComment(page1,pageQueryDTO.getSort_by(),pageQueryDTO.getSort_order());
+
         List<ReportCommentVO> records = page.getRecords();
         Result<ReportCommentVO> result = new Result<>();
         result.setRecords(records);

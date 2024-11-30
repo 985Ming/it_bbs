@@ -21,6 +21,7 @@
                      reports r
         left join posts p on r.target_id = p.post_id
         left join avatars a on a.avatar_id =p.avatar_id
+        where p.status=3
         <if test="sort_by != null and sort_order != null">
             order by ${sort_by} ${sort_order}
         </if>
@@ -46,6 +47,7 @@
         reports r
         left join comments c on r.target_id = c.comment_id
         left join avatars a on a.avatar_id =c.avatar_id
+        where c.status=2
         <if test="sort_by != null and sort_order != null">
         order by ${sort_by} ${sort_order}
         </if>

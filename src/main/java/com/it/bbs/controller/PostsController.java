@@ -40,8 +40,9 @@ private IPostsService postsService;
      * @param addPostDTO
      */
     @PostMapping("/post")
-    public void addPost(@RequestBody AddPostDTO addPostDTO){
+    public Result addPost(@RequestBody AddPostDTO addPostDTO){
         postsService.addPost(addPostDTO);
+        return Result.success("发帖成功");
     }
 
     /**

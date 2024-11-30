@@ -6,10 +6,11 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 @Data
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class CommentsVO {
+public class CommentsVO implements Serializable {
     /**
      * 评论ID，自增主键
      */

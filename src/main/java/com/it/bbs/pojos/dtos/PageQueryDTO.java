@@ -6,9 +6,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
+
+import java.io.Serializable;
+
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Data
-public class PageQueryDTO {
+public class PageQueryDTO implements Serializable {
 private Integer page =1;
 private Integer size =6;
 private String sort_by;
